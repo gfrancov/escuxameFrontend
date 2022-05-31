@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.card {
+    background-color: #181818;
+    color: #fff;
+}
+.card input {
+    background-color: #292929;
+    border: none;
+    color: #fff;
+}
+.card button {
+    background-color: #FF8008;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+.card button:hover {
+    background-color: #FFC837;
+    color: rgb(24, 24, 24); 
+}
+
+h5 {
+    font-size: 2rem;
+}
