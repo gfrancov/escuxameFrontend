@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,11 @@ export class RegisterComponent implements OnInit {
 
   userRegister = {
     email: '',
+    username: '',
     password: ''
   }
+
+  userExist : any;
   
   constructor(private authService: AuthService) { }
 
@@ -19,11 +23,15 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar() {
-    console.log(this.userRegister);
-    const { email, password } = this.userRegister;
-    this.authService.register(email,password).then(res => {
-      console.log(res); 
-    })
+    const { email, password, username } = this.userRegister;
+
+    this.authService.register(email,password,username).then(function (result) {
+      
+      console.log(result);
+
+    });
+
+
 
   }
 

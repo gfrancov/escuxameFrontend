@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "escuxame-e370b"
+  },
+  "targets": {
+    "escuxame-e370b": {
+      "hosting": {
+        "escuxame-frontend": [
+          "escuxame-e370b"
+        ]
+      }
+    }
+  }
+}

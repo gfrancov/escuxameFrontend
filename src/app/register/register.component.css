@@ -7,15 +7,6 @@
     overflow: hidden;
 }
 
-.card {
-    background-color: #181818;
-    color: #fff;
-}
-.card input {
-    background-color: #292929;
-    border: none;
-    color: #fff;
-}
 .card button {
     background-color: #FF8008;
     border: none;

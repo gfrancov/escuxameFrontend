@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><img src="../assets/logos/logo-final-3.png" id="nav-logo" alt="Logo escuxa.me"/></a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation">
+        <i class="fas fa-bars" [ngbCollapse]="!isCollapsed"></i>
+        <i class="fas fa-times" [ngbCollapse]="isCollapsed"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngbCollapse]="isCollapsed">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/home"><i class="fas fa-home"></i> Inicio</a>
+        <a class="nav-item nav-link" href="#"><i class="fas fa-search"></i> Buscar</a>
+        <a class="nav-item nav-link" href="#"><i class="fab fa-spotify"></i> Post</a>
+      </div>
+    </div>
+    <a class="nav-item nav-link logout" href="#" (click)="cerrarSesion()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+  </nav>

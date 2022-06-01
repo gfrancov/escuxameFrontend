@@ -7,22 +7,26 @@
     overflow: hidden;
 }
 
-.card {
-    background-color: #181818;
-    color: #fff;
+.card button i {
+    margin-right: 5px;
 }
-.card input {
-    background-color: #292929;
-    border: none;
-    color: #fff;
-}
-.card button {
+#entrar {
     background-color: #FF8008;
     border: none;
     color: rgb(0, 0, 0);
 }
-.card button:hover {
+#google {
+    background-color: #cf4332;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+#entrar:hover {
     background-color: #FFC837;
+    color: rgb(24, 24, 24); 
+}
+#google:hover {
+    background-color: #ff5542;
+    border: none;
     color: rgb(24, 24, 24); 
 }
 

@@ -7,3 +7,20 @@ body {
     overflow-x: hidden;
     font-family: 'Inter';
 }
+
+/* Dark cards */
+.card {
+    background-color: #181818;
+    color: #fff;
+}
+.card input {
+    background-color: #292929;
+    border: none;
+    color: #fff;
+}
+
+.row {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}

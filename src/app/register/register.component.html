@@ -9,6 +9,10 @@
               <label for="correoElectronico">Correo electrónico</label>
             </div>
             <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="userRegister.username" placeholder="gfranco"/>
+              <label for="nombreUsuario">Nombre de usuario</label>
+            </div>
+            <div class="form-floating mb-3">
               <input type="password" class="form-control" id="contrasenya" name="contrasenya" [(ngModel)]="userRegister.password" placeholder="Password"/>
               <label for="contrasenya">Contraseña</label>
             </div>
