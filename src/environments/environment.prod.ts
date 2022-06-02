@@ -9,5 +9,12 @@ export const environment = {
     messagingSenderId: '396212512791',
     measurementId: 'G-VNX8VC8K6X',
   },
-  production: true
+  production: true,
+  spotify: {
+    client: '571277da4aa84029a30e8d217b91f359',
+    secret: 'be85208c469946578cc9e722b0e1c9c9',
+    searchURL: 'https://api.spotify.com/v1/search',
+    refreshURL: 'https://accounts.spotify.com/api/token',
+    token: 'BQCZaMVlU46s7Gq6abrrBDJlhmi9ddUusoMWCR_6NbOgYRKdvBDevjr_X0ZSFpxZF-mpgSW0nEnMMHUhns4ZxCsIQygQnAitcQ31W8n65BSEMlteSee1IjxzTOO41B7J5plUaeqsS4zFT16gvtdOybApEDLqbKbjcHQ'
+  }
 };
