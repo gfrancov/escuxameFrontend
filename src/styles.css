@@ -18,6 +18,10 @@ body {
     border: none;
     color: #fff;
 }
+.card input:focus {
+    background-color: #292929;
+    color: #fff;
+}
 
 .row {
     margin-top: 0 !important;

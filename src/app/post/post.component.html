@@ -1,0 +1,58 @@
+<app-nav></app-nav>
+<div class="row pt-3">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <input class="form-control song-search" 
+        [ngClass]="{'locading':isLoading}"
+        [spellcheck]="false"
+        placeholder="Selecciona una canción"        
+        type="text"
+        (ngModelChange)="search($event)"
+        [(ngModel)]="src"
+        />
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card without-background">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let item of data$ | async">
+                    <a class="name" target="_blank" (click)="selectSong(item)">
+                        <img class="trackImage"[src]="item.album.images[2].url" alt="">
+                        {{item.name}}<br/>
+                        <small class="text-muted">{{item.artists[0].name}}</small>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              [src]="trackData.image"
+              alt="Trendy Pants and Shoes"
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="card-text">
+                <textarea class="form-control postContent" maxlength="200" [(ngModel)]="postContent"></textarea>
+              </p>
+              <p class="card-text mt-0 mb-0 song-title">
+                <i class="fab fa-spotify"></i> {{trackData.title}} <small class="text-muted">{{trackData.artist}}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" id="publishButton" (click)="publish()"><i class="fas fa-volume-up"></i> Publicar</button>
+    </div>
+</div>

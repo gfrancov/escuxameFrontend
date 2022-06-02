@@ -16,17 +16,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-
-    this.authService.checkLogged();
-    
+  ngOnInit(): void {    
+    this.authService.checkLoggedOut();
   }
 
   entrar() {
 
     const { email, password } = this.userLogin;
     this.authService.login(email,password).then(res => {
-      console.log(res?.user);
+      this.router.navigate(['/home']);
     })
 
   }

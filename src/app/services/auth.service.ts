@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { user } from '@angular/fire/auth';
+import { user, getAuth } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { BehaviorSubject } from 'rxjs';
@@ -23,17 +23,37 @@ export class AuthService {
     }
   }
 
-  public checkLogged() {
+  getUserData() : any{
+
+    const auth = getAuth();
+    const usuario = auth.currentUser;
+    if(usuario !== null) {
+      return {
+        displayName: usuario.displayName,
+        uid: usuario.uid
+      }
+    }
+
+  }
+
+  checkLoggedIn() {
+
+    this.afauth.user.subscribe(user => {
+      if(!user) {
+        this.ngZone.run(() => {
+          this.router.navigate(['/login']);
+        })
+      }
+    })
+  }
+
+  checkLoggedOut() {
+
     this.afauth.user.subscribe(user => {
       if(user) {
         this.ngZone.run(() => {
           this.router.navigate(['/home']);
-          console.log(user);
         })
-      } else {
-        this.ngZone.run(() => {
-          this.router.navigate(['/login']);
-        });
       }
     })
   }
