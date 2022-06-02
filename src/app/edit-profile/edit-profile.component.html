@@ -3,7 +3,8 @@
     <section>
         <div class="container">      
           <div class="row" style="display: flex; justify-content: center; align-items: center;">
-            <div class="col-lg-9">
+            <div class="col-lg-9 mb-0">
+              <button class="btn btn-dark btn-login text-uppercase fw-bold mb-3" style="width: 100%; background-color: #181818;" type="submit" id="publishButton" [routerLink]="['/u/'+userData.name]"><i class="fas fa-user"></i> Visualizar perfil</button>
               <div class="card mb-4">
                 <div class="card-body text-center">
                   <img [src]="userData.pfp" alt="avatar"
@@ -12,13 +13,12 @@
                   <p class="text-muted mb-1">{{userData.biography}}</p>
                 </div>
               </div>
-              <button class="btn btn-dark btn-login text-uppercase fw-bold" style="width: 100%; background-color: #181818;" type="submit" id="publishButton" [routerLink]="['/u/'+userData.name]"><i class="fas fa-user"></i> Visualizar perfil</button>
             </div>
           </div>
         </div>
     </section>
 </div>
-<div class="row pt-3">
+<div class="row">
     <section>
         <div class="container">      
           <div class="row" style="display: flex; justify-content: center; align-items: center;">
