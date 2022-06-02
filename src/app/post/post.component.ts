@@ -1,10 +1,10 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {debounceTime, finalize, map, switchMap, tap} from 'rxjs/operators';
-import {fromEvent, of} from 'rxjs';
 import { SpotifyService } from '../services/spotify.service';
 import { AuthService } from '../services/auth.service';
 import { Firestore } from '@angular/fire/firestore';
 import { addDoc, collection } from 'firebase/firestore';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post',
@@ -21,7 +21,7 @@ export class PostComponent implements OnInit {
     uri: '',
     image: '../assets/logos/empty-track.png',
     title: 'Canción',
-    artist: 'Anónimo',
+    artist: 'Artista',
     link: '#'
   }
 
@@ -61,10 +61,21 @@ export class PostComponent implements OnInit {
   publish() : any {
 
     if(this.trackData.uri === '') {
-      console.log("Elige canción!");
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: '¡Oye!',
+        text: 'Has de seleccionar una canción para publicar algo.',
+        showConfirmButton: true,
+        confirmButtonColor: '#f27474',
+        confirmButtonText: 'Volver',
+        background: '#181818',
+        color: '#fff',
+        timer: 5000
+      });
     } else {
 
-      const publishDate = (new Date().toISOString());
+      const publishDate = (new Date());
       const userData = this.authService.getUserData();
 
       const postInfo = {
@@ -78,7 +89,19 @@ export class PostComponent implements OnInit {
       }
 
       const posts = collection(this.firestore, 'posts');
-      return addDoc(posts, postInfo);
+      addDoc(posts, postInfo);
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Publicado!',
+        text: 'Tu post ha sido publicado correctament',
+        showConfirmButton: true,
+        confirmButtonColor: '#7ea966',
+        confirmButtonText: 'Visualizar'
+      }).then(function() {
+        window.location.href = "/home";
+      });
 
     }
 

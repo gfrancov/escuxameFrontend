@@ -5,6 +5,7 @@ import firebase from 'firebase/compat/app';
 import { BehaviorSubject } from 'rxjs';
 import { UsersService } from './users.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Injectable({

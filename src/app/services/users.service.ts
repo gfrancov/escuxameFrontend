@@ -14,25 +14,27 @@ export class UsersService {
 
   addUser(user: User) {
 
-    this.ifExists(user);
-
     const userId = collection(this.firestore, 'users');
     return addDoc(userId, user);
 
   }
 
-  async ifExists(user: User) {
+  async ifExists(username: string) {
+
+    var count = 0;
 
     const app = initializeApp(environment.firebase);
     const db = getFirestore(app);
 
-    const q = query(collection(db, 'users'), where('name', '==', user.name));
+    const q = query(collection(db, 'users'), where('name', '==', username));
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      count++;
     });
     
+    return count;
+
   }
 
 }

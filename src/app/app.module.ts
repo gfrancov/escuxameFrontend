@@ -19,6 +19,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostComponent } from './post/post.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PostComponent } from './post/post.component';
     HomeComponent,
     NavComponent,
     FooterComponent,
-    PostComponent
+    PostComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
