@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
 
     });
 
-
+    console.log(this.todayPosts);
+    
   }
 
   async getAllPosts24() {
@@ -47,6 +48,10 @@ export class HomeComponent implements OnInit {
     const querySnapshot = await getDocs(q);
     return querySnapshot;
 
+  }
+
+  goToSpotify(url : string) {
+    window.open(url, "popup",'width=800,height=500,');
   }
 
 }

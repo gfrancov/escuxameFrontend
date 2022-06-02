@@ -7,6 +7,12 @@ body {
     overflow-x: hidden;
     font-family: 'Inter';
 }
+a {
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+}
 
 /* Dark cards */
 .card {

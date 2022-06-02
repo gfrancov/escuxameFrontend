@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckLoginGuard } from './check-login.guard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PostComponent } from './post/post.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent, canActivate: [CheckLoginGuard]},
   {path: 'post', component: PostComponent, canActivate: [CheckLoginGuard]},
-  {path: 'u/:user', component: ProfileComponent, canActivate: [CheckLoginGuard]}
+  {path: 'u/:user', component: ProfileComponent},
+  {path: 'profile', component: EditProfileComponent, canActivate: [CheckLoginGuard]}
 
 ];
 

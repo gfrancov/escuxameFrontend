@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,10 +12,19 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavComponent implements OnInit {
 
   public isCollapsed = true;
+  public isLogged = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private afauth : AngularFireAuth, private ngZone: NgZone) { }
 
   ngOnInit(): void {
+    this.afauth.user.subscribe(user => {
+      if(!user) {
+        this.ngZone.run(() => {
+          this.isLogged = true;
+        });
+      }
+    });
+
   }
 
   cerrarSesion() {

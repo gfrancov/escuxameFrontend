@@ -1,0 +1,47 @@
+<app-nav></app-nav>
+<div class="row pt-3">
+    <section>
+        <div class="container">      
+          <div class="row" style="display: flex; justify-content: center; align-items: center;">
+            <div class="col-lg-9">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <img [src]="userData.pfp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <h5 class="my-3">{{userData.name}}</h5>
+                  <p class="text-muted mb-1">{{userData.biography}}</p>
+                </div>
+              </div>
+              <button class="btn btn-dark btn-login text-uppercase fw-bold" style="width: 100%; background-color: #181818;" type="submit" id="publishButton" [routerLink]="['/u/'+userData.name]"><i class="fas fa-user"></i> Visualizar perfil</button>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>
+<div class="row pt-3">
+    <section>
+        <div class="container">      
+          <div class="row" style="display: flex; justify-content: center; align-items: center;">
+            <div class="col-lg-9">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control postContent" id="biography" name="biography" maxlength="200" [(ngModel)]="userData.biography"></textarea>
+                            <label for="biography">Biografía</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="profilePic" name="profilePic" [(ngModel)]="userData.pfp" placeholder="URL"/>
+                          <label for="contrasenya">Imagen de perfil (URL)</label>
+                        </div>
+                        <div class="d-grid">
+                          <button class="btn btn-primary btn-login text-uppercase fw-bold goldenButton" type="submit" id="entrar" (click)="doChanges()"><i class="fas fa-save"></i> Guardar cambios</button>
+                        </div>
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>

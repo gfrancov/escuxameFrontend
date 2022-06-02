@@ -77,6 +77,7 @@ export class PostComponent implements OnInit {
 
       const publishDate = (new Date());
       const userData = this.authService.getUserData();
+      console.log(userData);
 
       const postInfo = {
 
@@ -98,7 +99,10 @@ export class PostComponent implements OnInit {
         text: 'Tu post ha sido publicado correctament',
         showConfirmButton: true,
         confirmButtonColor: '#7ea966',
-        confirmButtonText: 'Visualizar'
+        confirmButtonText: 'Visualizar',
+        color: '#fff',
+        background: '#181818',
+
       }).then(function() {
         window.location.href = "/home";
       });

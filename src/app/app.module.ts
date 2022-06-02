@@ -20,6 +20,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostComponent } from './post/post.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
     NavComponent,
     FooterComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

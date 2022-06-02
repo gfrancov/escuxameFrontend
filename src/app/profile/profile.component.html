@@ -1,100 +1,45 @@
 <app-nav></app-nav>
 <div class="row pt-3">
-    <section>
+    <section *ngIf="userExists">
         <div class="container py-5">      
           <div class="row">
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                  <img [src]="userData.pfp.stringValue" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3">John Smith</h5>
-                  <p class="text-muted mb-1">Full Stack Developer</p>
-                  <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                  <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary">Hablar</button>
+                  <h5 class="my-3">{{userData.name.stringValue}}</h5>
+                  <p class="text-muted mb-1">{{userData.biography.stringValue}}</p>
+                  <div class="d-flex justify-content-center mb-2 mt-2">
+                    <button type="button" class="btn btn-primary customButton goldenButton">Hablar</button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-8">
-                <div class="row">
+                  <div class="row" *ngFor="let post of userPosts">
                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
                       <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
-                          <div class="col-md-4">
-                            <img
-                              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.albumoftheyear.org%2Falbum%2F496273-un-verano-sin-ti-1.jpg&f=1&nofb=1"
-                              alt="Trendy Pants and Shoes"
-                              class="img-fluid rounded-start"
-                            />
+                          <div class="col-md-4 requadre-imatge">
+                            <a (click)="goToSpotify(post.track.mapValue.fields.link.stringValue)">
+                                <img
+                                [src]="post.track.mapValue.fields.image.stringValue"
+                                [alt]="post.track.mapValue.fields.title.stringValue"
+                                class="img-fluid rounded-start"
+                                />
+                            </a>
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
                               <p class="card-text">
-                                perdón ya salí de mi cuadro depresivo de cuatro meses jeje ora sí cuándo nos vemos??
+                                {{post.content.stringValue}}
                               </p>
                               <p class="card-text mt-0 mb-0 song-title">
-                                <i class="fab fa-spotify"></i> Tití Me Preguntó <small class="text-muted">Bad Bunny</small>
+                                <a (click)="goToSpotify(post.track.mapValue.fields.link.stringValue)"><i class="fab fa-spotify"></i> {{post.track.mapValue.fields.title.stringValue}} <small class="text-muted">{{post.track.mapValue.fields.artist.stringValue}}</small></a>
                               </p>
                               <p class="card-text">
-                                <small class="text-muted">Publicado por <a href="#">@gabii.franco</a> el 01/06/2022.</small>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <img
-                              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.albumoftheyear.org%2Falbum%2F496273-un-verano-sin-ti-1.jpg&f=1&nofb=1"
-                              alt="Trendy Pants and Shoes"
-                              class="img-fluid rounded-start"
-                            />
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                              <p class="card-text">
-                                perdón ya salí de mi cuadro depresivo de cuatro meses jeje ora sí cuándo nos vemos??
-                              </p>
-                              <p class="card-text mt-0 mb-0 song-title">
-                                <i class="fab fa-spotify"></i> Tití Me Preguntó <small class="text-muted">Bad Bunny</small>
-                              </p>
-                              <p class="card-text">
-                                <small class="text-muted">Publicado por <a href="#">@gabii.franco</a> el 01/06/2022.</small>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <img
-                              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.albumoftheyear.org%2Falbum%2F496273-un-verano-sin-ti-1.jpg&f=1&nofb=1"
-                              alt="Trendy Pants and Shoes"
-                              class="img-fluid rounded-start"
-                            />
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                              <p class="card-text">
-                                perdón ya salí de mi cuadro depresivo de cuatro meses jeje ora sí cuándo nos vemos??
-                              </p>
-                              <p class="card-text mt-0 mb-0 song-title">
-                                <i class="fab fa-spotify"></i> Tití Me Preguntó <small class="text-muted">Bad Bunny</small>
-                              </p>
-                              <p class="card-text">
-                                <small class="text-muted">Publicado por <a href="#">@gabii.franco</a> el 01/06/2022.</small>
+                                <small class="text-muted">Publicado por <a [routerLink]="['/u/'+post.username.stringValue]">@{{post.username.stringValue}}</a> el {{post.publishDate.timestampValue.split('T')[0]}}.</small>
                               </p>
                             </div>
                           </div>
@@ -106,4 +51,15 @@
           </div>
         </div>
       </section>
-  </div>
+      <div *ngIf="!userExists" class="col-sm-9 col-md-9 col-lg-9 mx-auto">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Usuario no encontrado!</h5>
+            <p class="card-text">El usuario que has intentado buscar no existe.</p>
+            </div>
+        </div>
+        <div class="mt-2">
+            <a [routerLink]="['/home']" class="btn btn-primary customButton">Volver al inicio</a>
+        </div>
+    </div>
+</div>

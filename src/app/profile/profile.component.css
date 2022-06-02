@@ -4,3 +4,17 @@
 .song-title {
     color:#1DB954;
 }
+.customButton {
+    width: 100%;
+    background-color: #181818;
+    border: none;
+}
+.customButton i {
+    margin-right: 10px;
+}
+.customButton:hover {
+    background-color: #222222;
+}
+.goldenButton {
+    background-color: #FF8008;
+}

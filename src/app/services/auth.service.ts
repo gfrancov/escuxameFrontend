@@ -67,8 +67,8 @@ export class AuthService {
         const response = await this.usersService.addUser({
           id: result.user?.uid,
           name: username,
-          biography: '',
-          pfp: 'default.png',
+          biography: 'Me flipa la música manito',
+          pfp: '../assets/pfp/default-avatar.png',
         });
 
         console.log(response);

@@ -1,0 +1,12 @@
+.postContent {
+    background-color: #292929;
+    color: #fff;
+    border: 1px solid black;
+}
+.postContent:focus {
+    box-shadow: none;
+}
+.goldenButton {
+    background-color: #FF8008;
+    border: none;
+}

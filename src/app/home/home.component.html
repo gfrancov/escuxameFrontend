@@ -1,14 +1,16 @@
 <app-nav></app-nav>
   <div class="row pt-3" *ngFor="let post of todayPosts">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card mb-3" style="max-width: 540px;">
+    <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
+      <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4 requadre-imatge">
-            <img
-              [src]="post.track.mapValue.fields.image.stringValue"
-              [alt]="post.track.mapValue.fields.title.stringValue"
-              class="img-fluid rounded-start"
-            />
+            <a (click)="goToSpotify(post.track.mapValue.fields.link.stringValue)">
+              <img
+                [src]="post.track.mapValue.fields.image.stringValue"
+                [alt]="post.track.mapValue.fields.title.stringValue"
+                class="img-fluid rounded-start"
+              />
+            </a>
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -16,7 +18,7 @@
                 {{post.content.stringValue}}
               </p>
               <p class="card-text mt-0 mb-0 song-title">
-                <i class="fab fa-spotify"></i> {{post.track.mapValue.fields.title.stringValue}} <small class="text-muted">{{post.track.mapValue.fields.artist.stringValue}}</small>
+                <a (click)="goToSpotify(post.track.mapValue.fields.link.stringValue)"><i class="fab fa-spotify"></i> {{post.track.mapValue.fields.title.stringValue}} <small class="text-muted">{{post.track.mapValue.fields.artist.stringValue}}</small></a>
               </p>
               <p class="card-text">
                 <small class="text-muted">Publicado por <a [routerLink]="['/u/'+post.username.stringValue]">@{{post.username.stringValue}}</a> el {{post.publishDate.timestampValue.split('T')[0]}}.</small>
@@ -27,4 +29,13 @@
       </div>
     </div>
   </div>
+  <div *ngIf="todayPosts.length == 0"  class="row pt-3">
+    <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
+      <div class="card">
+          <div class="card-body">
+          <p class="card-text">No hay ninguna publicación desde las útlimas 24 horas.</p>
+          </div>
+      </div>
+    </div>
+</div>
 
